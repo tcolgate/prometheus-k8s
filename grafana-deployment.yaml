@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: 'false'
+  labels:
+    name: grafana
+  name: grafana
+spec:
+  selector:
+    app: grafana
+  type: NodePort
+  ports:
+  - name: grafana
+    protocol: TCP
+    port: 3000
+    nodePort: 30080
+----
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      name: grafana
+      labels:
+        app: grafana
+    spec:
+      containers:
+      - name: grafana
+        image: grafana/grafana:latest
+        ports:
+        - name: web
+          containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /login
+            port: 3000
+          initialDelaySeconds: 15
+          timeoutSeconds: 1
