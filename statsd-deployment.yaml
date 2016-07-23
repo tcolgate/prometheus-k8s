@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: 'true'
+  labels:
+    name: statsd
+  name: statsd
+spec:
+  selector:
+    app: statsd
+  type: NodePort
+  ports:
+  - name: web
+    protocol: TCP
+    port: 9102
+    nodePort: 30912
+  - name: statsd
+    protocol: UDP
+    port: 9125
+    nodePort: 30825
+----
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: statsd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: statsd
+  template:
+    metadata:
+      name: statsd
+      labels:
+        app: statsd
+    spec:
+      containers:
+      - name: statsd
+        image: prom/statsd-exporter:latest
+        ports:
+        - name: web
+          containerPort: 9102
+        - name: statsd
+          containerPort: 9125
+        livenessProbe:
+          httpGet:
+            path: /metrics
+            port: 9102
+          initialDelaySeconds: 15
+          timeoutSeconds: 1

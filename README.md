@@ -7,6 +7,9 @@ for real clusters.
 - Creates a persistant volume and claim for prometheus data
 - Creates a prometheus instance
 - Creates an alertmanager instance.
+- Creates a pushgateway instance.
+- Creates a statsd exporter instance.
+- Creates a blackbox exporter instance.
 - Prometheus will monitor all elements of the kube cluster (including
   services)
 - A grafana deployment (no state is kept yet, and no default
