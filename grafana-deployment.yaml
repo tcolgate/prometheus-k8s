@@ -47,12 +47,17 @@ spec:
         volumeMounts:
         - name: config-volume
           mountPath: /etc/grafana
+        - name: dashboard-volume
+          mountPath: /var/lib/grafana-dashboards
         - name: grafanapd
           mountPath: "/var/lib/grafana"
       volumes:
       - name: config-volume
         configMap:
           name: grafana
+      - name: dashboard-volume
+        configMap:
+          name: grafanadashs
       - name: grafanapd
         persistentVolumeClaim:
           claimName: grafanaclaim1
