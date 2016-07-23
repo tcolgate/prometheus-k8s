@@ -1,0 +1,7 @@
+curl 'http://admin:admin@localhost:3000/api/datasources' \
+    -X POST -H "Content-Type: application/json" \
+    --data-binary '{"name":"prometheus","type":"prometheus","url":"http://prometheus:9090","access":"proxy","isDefault":true, }'
+
+Enabled dashboard.json
+
+/var/lib/grafana/grafana.db
