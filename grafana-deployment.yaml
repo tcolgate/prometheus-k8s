@@ -44,3 +44,15 @@ spec:
             port: 3000
           initialDelaySeconds: 15
           timeoutSeconds: 1
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/grafana
+        - name: grafanapd
+          mountPath: "/var/lib/grafana"
+      volumes:
+      - name: config-volume
+        configMap:
+          name: grafana
+      - name: grafanapd
+        persistentVolumeClaim:
+          claimName: grafanaclaim1
