@@ -1,0 +1,11 @@
+name: node_exporter
+version: 0.0.1
+description: Prometheus node_exporter
+keywords:
+  - prometheus
+  - node_exporter
+home: http://github.com/tcolgate/prometheus-k8s/charts/node_exporter
+maintainers:
+  - name: Tristan Colgate-McFarlane
+    email: tcolgate@gmail.com
+engine: gotpl

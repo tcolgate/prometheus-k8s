@@ -1,0 +1,11 @@
+name: blackbox_exporter
+version: 0.0.1
+description: Prometheus blackbox exporter
+keywords:
+  - prometheus
+  - blackbox_exporter
+home: http://github.com/tcolgate/prometheus-k8s/charts/blackbox_exporter
+maintainers:
+  - name: Tristan Colgate-McFarlane
+    email: tcolgate@gmail.com
+engine: gotpl

@@ -1,0 +1,11 @@
+name: grafana
+version: 0.0.1
+description: grafana with automated prometheus setup
+keywords:
+  - prometheus
+  - grafana
+home: http://github.com/tcolgate/prometheus-k8s/charts/grafana
+maintainers:
+  - name: Tristan Colgate-McFarlane
+    email: tcolgate@gmail.com
+engine: gotpl

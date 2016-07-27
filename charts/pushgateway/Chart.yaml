@@ -1,0 +1,11 @@
+name: pushgateway
+version: 0.0.1
+description: Prometheus pushgateway
+keywords:
+  - prometheus
+  - pushgateway
+home: http://github.com/tcolgate/prometheus-k8s/charts/pushgateway
+maintainers:
+  - name: Tristan Colgate-McFarlane
+    email: tcolgate@gmail.com
+engine: gotpl

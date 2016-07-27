@@ -1,21 +1,3 @@
-apiVersion: v1
-kind: Service
-metadata:
-  annotations:
-    prometheus.io/scrape: 'true'
-  labels:
-    name: blackbox
-  name: blackbox
-spec:
-  selector:
-    app: blackbox
-  type: NodePort
-  ports:
-  - name: blackbox
-    protocol: TCP
-    port: 9115
-    nodePort: 30915
-----
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
