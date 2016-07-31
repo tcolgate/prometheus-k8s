@@ -1,4 +1,4 @@
-name: prometheus-stack
+name: prometheus-k8s
 version: 0.0.1
 description: Deploy a full prometheus monitoring stack for k8s
 keywords:

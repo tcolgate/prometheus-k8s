@@ -502,7 +502,7 @@ data:
                   "expr": "rate(prometheus_local_storage_ingested_samples_total{instance=\"$instance\"}[5m])",
                   "interval": "",
                   "intervalFactor": 2,
-                  "legendFormat": "{{instance}}",
+                  "legendFormat": "{{"{{"}}instance{{"}}"}}",
                   "metric": "",
                   "refId": "A",
                   "step": 2
@@ -601,7 +601,7 @@ data:
                 {
                   "expr": "rate(prometheus_target_interval_length_seconds_count{instance=\"$instance\"}[5m])",
                   "intervalFactor": 2,
-                  "legendFormat": "{{job}}",
+                  "legendFormat": "{{"{{"}}job{{"}}"}}",
                   "refId": "A",
                   "step": 2
                 }
@@ -676,7 +676,7 @@ data:
                   "expr": "prometheus_target_interval_length_seconds{instance=\"$instance\",quantile!=\"0.01\", quantile!=\"0.05\"}",
                   "interval": "",
                   "intervalFactor": 2,
-                  "legendFormat": "{{quantile}} ({{interval}})",
+                  "legendFormat": "{{"{{"}}quantile{{"}}"}} ({{"{{"}}interval{{"}}"}})",
                   "metric": "",
                   "refId": "A",
                   "step": 2
@@ -776,7 +776,7 @@ data:
                   "expr": "prometheus_evaluator_duration_milliseconds{instance=\"$instance\",quantile!=\"0.01\", quantile!=\"0.05\"}",
                   "interval": "",
                   "intervalFactor": 2,
-                  "legendFormat": "{{quantile}}",
+                  "legendFormat": "{{"{{"}}quantile{{"}}"}}",
                   "refId": "A",
                   "step": 2
                 }
