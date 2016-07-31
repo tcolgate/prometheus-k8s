@@ -17,10 +17,10 @@ spec:
       - name: prometheus
         image: prom/prometheus:latest
         args:
-          - '-storage.local.retention=6h'
-          - '-storage.local.memory-chunks=500000'
           - '-config.file=/etc/prometheus/prometheus.yml'
           - '-alertmanager.url=http://alertmanager:9093'
+          - '-storage.local.retention={{.localRetention}}'
+          - '-storage.local.memory-chunks={{.localMemoryChunks}}'
         ports:
         - name: web
           containerPort: 9090
@@ -34,11 +34,11 @@ spec:
         - name: config-volume
           mountPath: /etc/prometheus
         - mountPath: "/prometheus/data"
-          name: mypd
+          name: prompd
       volumes:
       - name: config-volume
         configMap:
           name: prometheus
-      - name: mypd
+      - name: prompd
         persistentVolumeClaim:
           claimName: promclaim1
