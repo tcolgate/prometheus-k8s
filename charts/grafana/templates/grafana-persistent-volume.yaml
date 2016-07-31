@@ -9,5 +9,6 @@ spec:
     storage: 100M
   accessModes:
     - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
   hostPath:
     path: "/mnt/sda1/data/data01"
