@@ -16,16 +16,22 @@ for real clusters.
   data source setup)
 - A templated grafana dashboard (not loaded by default yet)
 
-TODO:
+# Helm
 
-- Get grafana state on the PV
+I'm hoping to turn this into a usable set of helm charts. The current
+set are installable via helm, but no confguration is provided.
+
+  helm install .
+
+# TODO
+
 - Prometheus rules in a config map
 - Reload prometheus config on rule update
 - HA Prom (should just mean changing the rep count)
 - HA Alertmanager
 - Alertmanager config
 
-License:
+# License
 
 These configs are released under the Apache 2.0 license. All images
 downloaded are subject to their individual licenses.
