@@ -25,6 +25,7 @@ set are installable via helm, but no confguration is provided.
 
 # TODO
 
+- How to specify the volumes?
 - Prometheus rules in a config map
 - Reload prometheus config on rule update
 - HA Prom (should just mean changing the rep count)
