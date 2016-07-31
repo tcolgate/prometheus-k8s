@@ -19,8 +19,8 @@ spec:
         args:
           - '-config.file=/etc/prometheus/prometheus.yml'
           - '-alertmanager.url=http://alertmanager:9093'
-          - '-storage.local.retention={{.localRetention}}'
-          - '-storage.local.memory-chunks={{.localMemoryChunks}}'
+          - '-storage.local.retention={{.Values.localRetention}}'
+          - '-storage.local.memory-chunks={{.Values.localMemoryChunks}}'
         ports:
         - name: web
           containerPort: 9090

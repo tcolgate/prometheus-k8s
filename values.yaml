@@ -1,2 +1,2 @@
-localRetention: 3d
+localRetention: 72h
 localMemoryChunks: 300000
