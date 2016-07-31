@@ -21,6 +21,10 @@ spec:
           containerPort: 9102
         - name: statsd
           containerPort: 9125
+        args:
+{{ range $k, $v  := .Values.args }}
+          - '-{{$k}}={{$v}}'
+{{ end }}
         livenessProbe:
           httpGet:
             path: /metrics

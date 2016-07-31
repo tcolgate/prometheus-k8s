@@ -16,6 +16,10 @@ spec:
       containers:
       - name: blackbox
         image: prom/blackbox-exporter:latest
+        args:
+{{ range $k, $v  := .Values.args }}
+          - '-{{$k}}={{$v}}'
+{{ end }}
         ports:
         - name: web
           containerPort: 9115

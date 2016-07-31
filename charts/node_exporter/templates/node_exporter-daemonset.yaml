@@ -12,6 +12,10 @@ spec:
       containers:
       - image: prom/node-exporter
         name: node-exporter
+        args:
+{{ range $k, $v  := .Values.args }}
+          - '-{{$k}}={{$v}}'
+{{ end }}
         ports:
         - containerPort: 9100
           hostPort: 9100
