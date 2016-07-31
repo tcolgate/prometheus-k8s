@@ -1,2 +1,3 @@
-localRetention: 72h
-localMemoryChunks: 300000
+args:
+  storage.local.retention: 72h
+  storage.local.memory.chunksr: 300000
