@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      name: prometheus
+      labels:
+        app: prometheus
+    spec:
+      containers:
+      - name: prometheus
+        image: prom/prometheus:latest
+        args:
+          - '-storage.local.retention=6h'
+          - '-storage.local.memory-chunks=500000'
+          - '-config.file=/etc/prometheus/prometheus.yml'
+          - '-alertmanager.url=http://alertmanager:9093'
+        ports:
+        - name: web
+          containerPort: 9090
+        livenessProbe:
+          httpGet:
+            path: /metrics
+            port: 9090
+          initialDelaySeconds: 15
+          timeoutSeconds: 1
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/prometheus
+        - mountPath: "/prometheus/data"
+          name: mypd
+      volumes:
+      - name: config-volume
+        configMap:
+          name: prometheus
+      - name: mypd
+        persistentVolumeClaim:
+          claimName: promclaim1
